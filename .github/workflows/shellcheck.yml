@@ -1,7 +1,8 @@
+name: Shelly
 on:
-  push:
-    branches:
-      - master
+  pull_request:	
+    branches: [ "main" ]
+   
 
 name: "Trigger: Push action"
 permissions: {}
