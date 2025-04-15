@@ -11,9 +11,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install ShellCheck
-        run: sudo apt-get install shellcheck
-
-      - name: Run ShellCheck
+      - name: Run ShellCheck (strict mode)
         run: |
-          find . -name "*.sh" -exec shellcheck {} \;
+          find . -name "*.sh" -exec shellcheck --severity=warning {} \;
+          if find . -name "*.sh" -exec shellcheck --format=gcc {} \; | grep -q "warning"; then
+            echo "ShellCheck warnings found"
+            exit 1
+          fin: sudo apt-get install shellcheck
+
