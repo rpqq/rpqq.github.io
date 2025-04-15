@@ -2,10 +2,6 @@ name: Shelly
 on:
   pull_request:	
     branches: [ "main" ]
-   
-
-name: "Trigger: Push action"
-permissions: {}
 
 jobs:
   shellcheck:
